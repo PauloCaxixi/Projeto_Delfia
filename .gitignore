@@ -13,6 +13,7 @@ __pycache__/
 *.db
 *.sqlite
 *.sqlite3
+documents.db
 
 # Arquivos armazenados
 storage/*
@@ -26,6 +27,7 @@ logs/*
 .pytest_cache/
 .coverage
 htmlcov/
+test.db
 
 # IDE
 .vscode/
