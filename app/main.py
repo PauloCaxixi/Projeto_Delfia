@@ -1,3 +1,5 @@
+from typing import Dict
+
 from fastapi import FastAPI
 
 
@@ -9,7 +11,7 @@ app = FastAPI(
 
 
 @app.get("/health", tags=["Health"])
-def health_check() -> dict[str, str]:
+def health_check() -> Dict[str, str]:
     """Verifica se a aplicação está funcionando."""
 
     return {"status": "healthy"}
