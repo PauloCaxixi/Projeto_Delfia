@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Plataforma para gerenciamento seguro de documentos criptografados."
+    >
+
+    <title>SecureDocs | Documentos criptografados</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        defer
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        defer
+    ></script>
+
+    <script src="./js/api.js" defer></script>
+    <script src="./js/app.js" defer></script>
+</head>
+
+<body>
+    <canvas id="three-background"></canvas>
+
+    <div id="toast-container"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="brand">
+                <div class="company-logo-box">
+                    <img
+                        src="./assets/logo.png"
+                        alt="Logotipo da empresa"
+                        class="company-logo"
+                    >
+                </div>
+            </div>
+
+            <nav class="main-navigation">
+                <a href="#inicio">Início</a>
+                <a href="#seguranca">Segurança</a>
+                <a href="#documentos">Documentos</a>
+                <a href="/docs" target="_blank">API</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    id="logout-button"
+                    class="header-button"
+                    hidden
+                >
+                    Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section
+            id="login-section"
+            class="login-section"
+        >
+            <div class="hero-background-grid"></div>
+
+            <div class="hero-glow hero-glow-left"></div>
+            <div class="hero-glow hero-glow-right"></div>
+
+            <div class="hero-container">
+                <div class="hero-content" id="inicio">
+                    <span class="hero-label">
+                        Segurança digital para documentos
+                    </span>
+
+                    <h1>
+                        DOCUMENTOS
+                        <span>PROTEGIDOS.</span>
+                        CONTROLE TOTAL.
+                    </h1>
+
+                    <p>
+                        Uma plataforma segura para envio, armazenamento,
+                        criptografia e recuperação de documentos PDF.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a
+                            href="#seguranca"
+                            class="primary-link"
+                        >
+                            Conhecer a plataforma
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="/docs"
+                            target="_blank"
+                            class="secondary-link"
+                        >
+                            Abrir documentação da API
+                        </a>
+                    </div>
+
+                    <div class="hero-features">
+                        <article>
+                            <strong>01</strong>
+
+                            <div>
+                                <span>Criptografia</span>
+                                <small>Arquivos protegidos com Fernet</small>
+                            </div>
+                        </article>
+
+                        <article>
+                            <strong>02</strong>
+
+                            <div>
+                                <span>Autenticação</span>
+                                <small>Acesso protegido por HTTP Basic</small>
+                            </div>
+                        </article>
+
+                        <article>
+                            <strong>03</strong>
+
+                            <div>
+                                <span>Rastreabilidade</span>
+                                <small>Operações registradas em logs</small>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="login-column">
+                    <div class="login-card">
+                        <div class="login-card-header">
+                            <span class="card-number">01</span>
+
+                            <span class="online-indicator">
+                                <i></i>
+                                Ambiente seguro
+                            </span>
+                        </div>
+
+                        <div class="login-title">
+                            <span>Acesso restrito</span>
+
+                            <h2>
+                                ENTRE NA
+                                PLATAFORMA
+                            </h2>
+
+                            <p>
+                                Informe suas credenciais para acessar os
+                                documentos criptografados.
+                            </p>
+                        </div>
+
+                        <form id="login-form">
+                            <div class="form-field">
+                                <label for="username">
+                                    Usuário
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="Digite seu usuário"
+                                    autocomplete="username"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="password">
+                                    Senha
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Digite sua senha"
+                                    autocomplete="current-password"
+                                    required
+                                >
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="login-button"
+                            >
+                                Acessar plataforma
+                                <span>→</span>
+                            </button>
+                        </form>
+
+                        <div class="login-footer">
+                            <span>API</span>
+                            <span>Criptografia</span>
+                            <span>Logs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-bottom-line">
+                <span>Encrypted Document Manager</span>
+                <span>FastAPI · Python · SQLAlchemy</span>
+            </div>
+        </section>
+
+        <section
+            id="seguranca"
+            class="security-section"
+        >
+            <div class="section-container">
+                <div class="section-introduction">
+                    <span class="section-index">02</span>
+
+                    <div>
+                        <span class="section-label">
+                            Arquitetura segura
+                        </span>
+
+                        <h2>
+                            SEGURANÇA NÃO É
+                            UM DETALHE.
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="security-grid">
+                    <article class="security-card">
+                        <span class="card-index">01</span>
+
+                        <h3>Criptografia</h3>
+
+                        <p>
+                            Todo documento enviado é criptografado antes de ser
+                            armazenado no sistema de arquivos.
+                        </p>
+
+                        <div class="card-decoration"></div>
+                    </article>
+
+                    <article class="security-card highlighted">
+                        <span class="card-index">02</span>
+
+                        <h3>Autenticação</h3>
+
+                        <p>
+                            As operações de upload, listagem e download exigem
+                            credenciais válidas.
+                        </p>
+
+                        <div class="card-decoration"></div>
+                    </article>
+
+                    <article class="security-card">
+                        <span class="card-index">03</span>
+
+                        <h3>Integridade</h3>
+
+                        <p>
+                            Cada documento possui um checksum SHA-256 para
+                            identificação e verificação.
+                        </p>
+
+                        <div class="card-decoration"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="dashboard-section"
+            class="dashboard-section"
+            hidden
+        >
+            <div class="dashboard-header">
+                <div>
+                    <span class="dashboard-label">
+                        Ambiente autenticado
+                    </span>
+
+                    <h2>
+                        DOCUMENTOS
+                        <span>CRIPTOGRAFADOS.</span>
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="refresh-button"
+                    class="refresh-button"
+                >
+                    Atualizar dados
+                    <span>↻</span>
+                </button>
+            </div>
+
+            <div class="dashboard-status-grid">
+                <article class="status-card">
+                    <span class="status-card-label">
+                        Documentos
+                    </span>
+
+                    <strong id="document-count">0</strong>
+
+                    <small>arquivos armazenados</small>
+                </article>
+
+                <article class="status-card">
+                    <span class="status-card-label">
+                        Criptografia
+                    </span>
+
+                    <strong>FERNET</strong>
+
+                    <small>proteção ativa</small>
+                </article>
+
+                <article class="status-card">
+                    <span class="status-card-label">
+                        Status da API
+                    </span>
+
+                    <strong
+                        id="api-status"
+                        class="status-offline"
+                    >
+                        Verificando
+                    </strong>
+
+                    <small id="api-status-description">
+                        aguardando resposta
+                    </small>
+                </article>
+            </div>
+
+            <div
+                id="documentos"
+                class="dashboard-content"
+            >
+                <article class="upload-panel">
+                    <div class="panel-header">
+                        <span class="panel-number">01</span>
+
+                        <div>
+                            <span class="panel-label">
+                                Novo documento
+                            </span>
+
+                            <h3>UPLOAD DE PDF</h3>
+                        </div>
+                    </div>
+
+                    <p class="panel-description">
+                        Selecione um arquivo PDF para criptografar e armazenar
+                        com segurança.
+                    </p>
+
+                    <form id="upload-form">
+                        <label
+                            for="document-input"
+                            id="drop-zone"
+                            class="drop-zone"
+                        >
+                            <div class="drop-zone-icon">
+                                <span>↑</span>
+                            </div>
+
+                            <strong>
+                                ARRASTE SEU PDF
+                            </strong>
+
+                            <span>
+                                ou clique para selecionar
+                            </span>
+
+                            <small id="selected-file-name">
+                                Nenhum arquivo selecionado
+                            </small>
+                        </label>
+
+                        <input
+                            type="file"
+                            id="document-input"
+                            accept="application/pdf,.pdf"
+                            hidden
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            id="upload-button"
+                            class="upload-button"
+                        >
+                            Enviar e criptografar
+                            <span>→</span>
+                        </button>
+                    </form>
+                </article>
+
+                <article class="documents-panel">
+                    <div class="documents-panel-header">
+                        <div class="panel-header">
+                            <span class="panel-number">02</span>
+
+                            <div>
+                                <span class="panel-label">
+                                    Biblioteca segura
+                                </span>
+
+                                <h3>DOCUMENTOS</h3>
+                            </div>
+                        </div>
+
+                        <input
+                            type="search"
+                            id="search-input"
+                            placeholder="Buscar documento..."
+                        >
+                    </div>
+
+                    <div
+                        id="loading-state"
+                        class="state-message"
+                        hidden
+                    >
+                        Carregando documentos...
+                    </div>
+
+                    <div
+                        id="empty-state"
+                        class="state-message"
+                        hidden
+                    >
+                        Nenhum documento encontrado.
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table id="documents-table">
+                            <thead>
+                                <tr>
+                                    <th>Documento</th>
+                                    <th>Tamanho</th>
+                                    <th>Data</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="documents-table-body"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

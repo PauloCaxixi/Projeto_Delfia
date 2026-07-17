@@ -1,12 +1,17 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import AsyncGenerator, Dict
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from app.api import documents_router
 from app.core.logging_config import configure_logging
 from app.database.init_db import init_database
-from fastapi.middleware.cors import CORSMiddleware
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = BASE_DIR / "frontend"
 
 
 configure_logging()
@@ -25,16 +30,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-    ],
-    allow_credentials=False,
-    allow_methods=["GET", "POST"],
-    allow_headers=["Authorization", "Content-Type"],
-)
 
 @app.get("/health", tags=["Health"])
 def health_check() -> Dict[str, str]:
@@ -42,3 +37,14 @@ def health_check() -> Dict[str, str]:
 
 
 app.include_router(documents_router)
+
+
+if FRONTEND_DIR.exists():
+    app.mount(
+        "/",
+        StaticFiles(
+            directory=str(FRONTEND_DIR),
+            html=True,
+        ),
+        name="frontend",
+    )
