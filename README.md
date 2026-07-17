@@ -153,16 +153,16 @@ logs/
 
 # Tecnologias
 
-  Tecnologia     Utilização
-  -------------- ----------------
-  Python         Linguagem
-  FastAPI        API REST
-  SQLAlchemy     ORM
-  SQLite         Banco de Dados
-  Cryptography   Criptografia
-  Pydantic       Configuração
-  Uvicorn        Servidor
-  Pytest         Testes
+| Tecnologia | Utilização |
+|------------|------------|
+| Python | Linguagem de programação |
+| FastAPI | Framework para API REST |
+| SQLAlchemy | ORM |
+| SQLite | Banco de dados |
+| Cryptography | Criptografia de arquivos |
+| Pydantic | Validação de dados e configurações |
+| Uvicorn | Servidor ASGI |
+| Pytest | Testes automatizados |
 
 ------------------------------------------------------------------------
 
@@ -599,18 +599,35 @@ Possíveis melhorias:
 
 ------------------------------------------------------------------------
 
-# Melhorias Futuras
+# 🚀 Melhorias Futuras
+
+## Funcionalidades
 
 - Exclusão de documentos
 - Versionamento de documentos
 - Histórico de alterações
 - Múltiplos usuários
-- Controle de permissões
+- Controle de permissões (RBAC)
 - Dashboard administrativo
 - Upload assíncrono
 - Compressão de arquivos
-- Rotação automática das chaves
-- Antivírus integrado
+
+## Infraestrutura e Escalabilidade
+
+- Migração do banco de dados para PostgreSQL
+- Containerização com Docker
+- Pipeline de CI/CD (GitHub Actions)
+- Cache com Redis
+- Armazenamento de documentos no Amazon S3
+- Rate Limiting para proteção da API
+
+## Segurança
+
+- Autenticação JWT e OAuth2
+- Rotação automática das chaves de criptografia
+- Integração com Secret Manager para gerenciamento seguro de credenciais
+- Integração com antivírus para validação dos arquivos enviados
+- Auditoria completa das operações realizadas
 
 ------------------------------------------------------------------------
 
@@ -629,23 +646,6 @@ Este projeto foi desenvolvido exclusivamente para fins de avaliação técnica e
 -   Repository Pattern para desacoplar acesso ao banco.
 -   Service Layer para centralizar regras de negócio.
 -   Variáveis de ambiente para remover segredos do código.
-
-------------------------------------------------------------------------
-
-# Melhorias Futuras
-
--   PostgreSQL
--   Docker
--   CI/CD
--   JWT
--   OAuth2
--   Amazon S3
--   Redis
--   Rate Limiting
--   Auditoria
--   Antivírus
--   Rotação de Chaves
--   Secret Manager
 
 ------------------------------------------------------------------------
 
