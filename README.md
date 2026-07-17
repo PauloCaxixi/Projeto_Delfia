@@ -3,6 +3,12 @@
 > API REST desenvolvida em Python utilizando **FastAPI** para
 > gerenciamento seguro de documentos PDF criptografados.
 
+## Overview
+
+This project was developed as a technical challenge for secure document management.
+
+The original scope required the implementation of a secure REST API. As an additional showcase, an optional modern web interface was developed to demonstrate frontend integration with the backend.
+
 ------------------------------------------------------------------------
 
 # Índice
@@ -611,6 +617,37 @@ Possíveis melhorias:
 - Compressão de arquivos
 - Rotação automática das chaves
 - Antivírus integrado
+
+------------------------------------------------------------------------
+
+## 🌐 Web Interface (Optional Showcase)
+
+In addition to the requested REST API, this repository also includes an optional web interface developed as a technical showcase.
+
+The interface consumes the same FastAPI backend and demonstrates how the API can be integrated into a modern web application.
+
+### Features
+
+- Modern responsive interface
+- HTTP Basic Authentication
+- PDF upload
+- Document listing
+- Secure download
+- API health monitoring
+- Drag & Drop upload area
+- Animated user interface
+- Three.js interactive background
+- GSAP animations
+
+### Technologies
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- GSAP
+- Three.js
+
+> **Note:** The web interface was developed as an additional demonstration of frontend integration and is not part of the original technical challenge requirements.
 
 ------------------------------------------------------------------------
 
